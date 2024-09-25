@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "channels",
-    "kfc_app",
+    'channels',
+    'corsheaders',
+    'kfc_app',
 ]
 
 MIDDLEWARE = [
@@ -52,9 +53,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ASGI_APPLICATION = "kfc_backend.asgi.application"
+ASGI_APPLICATION = 'kfc_backend.asgi.application'
 CHANNEL_LAYERS = {
-    "default": {
+    'default': {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     }
 }
@@ -87,8 +88,12 @@ WSGI_APPLICATION = "kfc_backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "kfcapp_db",
+        "USER": "postgres",
+        "PASSWORD": "1707",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
